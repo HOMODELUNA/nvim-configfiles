@@ -14,11 +14,11 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	"git@github.com:neovim/nvim-lspconfig",
 	{
-		"Mythos-404/xmake.nvim",
+		"git@github.com:Mythos-404/xmake.nvim",
 		lazy = true,
 		event = "BufReadPost xmake.lua",
 		config = true,
-		dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+		dependencies = { "git@github.com:MunifTanjim/nui.nvim", "git@github.com:nvim-lua/plenary.nvim" },
 		opts = {
 			compile_command = {
 				dir = '.'
