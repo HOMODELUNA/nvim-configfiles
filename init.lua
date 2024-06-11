@@ -21,9 +21,14 @@ require("nvim-treesitter").setup {
 }
 
 require("nvim-tree").setup()
+require("plantuml-previewer").setup({
+    plantuml_jar = "/home/homodeluna/.local/wang/plantuml.jar",
+    java_command = "java",
+})
 -- require('monokai').setup{ palette = require('monokai').soda }
-local colorscheme = "gruvbox"
-require("gruvbox")
+local colorscheme = "pracale"
+-- require("gruvbox")
+require("pracale")
 vim.cmd("colorscheme " .. colorscheme)
 
 vim.opt.foldmethod = "indent"
@@ -31,3 +36,4 @@ vim.opt.foldlevel = 99
 
 vim.opt.expandtab = true
 vim.opt.tabstop=4
+vim.opt.softtabstop=4

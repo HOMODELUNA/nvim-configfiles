@@ -49,5 +49,13 @@ return {
 		end,
 		ft = { "markdown" },
 	},
-    "git@github.com:pierreglaser/folding-nvim.git"
+    "git@github.com:pierreglaser/folding-nvim.git",
+    {
+            'git@github.com:nvim-telescope/telescope.nvim',
+      dependencies = { 'git@github.com:nvim-lua/plenary.nvim' }
+
+    },
+    "git@github.com:rktjmp/lush.nvim",
+    "git@github.com:Sol-Ponz/plantuml-previewer.nvim",
+	"git@github.com:homodeluna/pracale.nvim",
 }

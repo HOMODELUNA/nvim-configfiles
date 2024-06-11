@@ -24,15 +24,9 @@ lspconfig.lua_ls.setup({ coq.lsp_ensure_capabilities({}) })
 -- "codeActions",
 lspconfig.ruby_lsp.setup(wang_configs)
 lspconfig.solargraph.setup(wang_configs)
--- lspconfig.pyright.setup {}
--- lspconfig.tsserver.setup {}
--- lspconfig.rust_analyzer.setup {
---   -- Server-specific settings. See `:help lspconfig-setup`
---   settings = {
---     ['rust-analyzer'] = {},
---   },
--- }
-
+lspconfig.pylsp.setup(wang_configs)
+lspconfig.cmake.setup(wang_configs)
+lspconfig.texlab.setup(wang_configs)
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
