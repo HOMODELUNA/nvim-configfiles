@@ -1,5 +1,9 @@
 -- Setup language servers.
-local lspconfig = require('lspconfig')
+-- local lspconfig = require('lspconfig')
+local lspconfig = vim.lsp.config
+
+local lsps = {"clangd", "rust_analyzer", "ruby_lsp", "solargraph", "ts_ls", "pylsp", "cmake", "crystalline", "gopls"}
+vim.lsp.enable(lsps)
 local coq = require("coq")
 local util = require("lspconfig.util")
 
@@ -13,17 +17,18 @@ local wang_configs = {
   on_attach = my_on_attach
 }
 
-lspconfig.clangd.setup(wang_configs)
-lspconfig.rust_analyzer.setup(wang_configs)
-lspconfig.lua_ls.setup(coq.lsp_ensure_capabilities({}))
-lspconfig.ruby_lsp.setup(wang_configs)
-lspconfig.solargraph.setup(wang_configs)
-lspconfig.ts_ls.setup(wang_configs)
-lspconfig.pylsp.setup(wang_configs)
-lspconfig.cmake.setup(wang_configs)
-lspconfig.crystalline.setup(wang_configs)
 
--- lspconfig.gopls.setup({})
+-- lspconfig.clangd.setup(wang_configs)
+-- lspconfig.rust_analyzer.setup(wang_configs)
+-- lspconfig.lua_ls.setup(coq.lsp_ensure_capabilities({}))
+-- lspconfig.ruby_lsp.setup(wang_configs)
+-- lspconfig.solargraph.setup(wang_configs)
+-- lspconfig.ts_ls.setup(wang_configs)
+-- lspconfig.pylsp.setup(wang_configs)
+-- lspconfig.cmake.setup(wang_configs)
+-- lspconfig.crystalline.setup(coq.lsp_ensure_capabilities({}))
+
+-- lspconfig.gopls.setup(wang_configs)
 -- lspconfig.texlab.setup(wang_configs)
 -- lspconfig.racket_langserver.setup(wang_configs)
 
