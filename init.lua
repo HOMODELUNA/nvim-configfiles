@@ -16,6 +16,8 @@ require("lazy").setup("plugins")
 
 require("wang-lsp-config")
 require("wang-highlight-glog")
+require("wang-keymaps")
+
 require("nvim-treesitter.configs").setup {
   highlight = {
     enable = true,
