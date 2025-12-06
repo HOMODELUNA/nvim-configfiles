@@ -2,7 +2,7 @@
 -- local lspconfig = require('lspconfig')
 local lspconfig = vim.lsp.config
 
-local lsps = {"clangd", "rust_analyzer", "ruby_lsp", "solargraph", "ts_ls", "pylsp", "cmake", "crystalline", "gopls"}
+local lsps = {"clangd", "rust_analyzer", "ruby_lsp", "solargraph", "ts_ls", "pylsp", "cmake", "crystalline", "gopls","typescript-language-server"}
 vim.lsp.enable(lsps)
 local coq = require("coq")
 local util = require("lspconfig.util")
