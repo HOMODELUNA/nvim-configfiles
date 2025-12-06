@@ -4,8 +4,8 @@
 -- For light theme
 -- vim.o.background = 'light'
 
-local c = require('vscode.colors').get_colors()
-require('vscode').setup({
+local c = require("vscode.colors").get_colors()
+require("vscode").setup {
   -- Alternatively set style in setup
   -- style = 'light'
 
@@ -23,7 +23,7 @@ require('vscode').setup({
 
   -- Override colors (see ./lua/vscode/colors.lua)
   color_overrides = {
-    vscLineNumber = '#FFFFFF',
+    vscLineNumber = "#FFFFFF",
   },
 
   -- Override highlight groups (see ./lua/vscode/theme.lua)
@@ -31,6 +31,6 @@ require('vscode').setup({
     -- this supports the same val table as vim.api.nvim_set_hl
     -- use colors from this colorscheme by requiring vscode.colors!
     Cursor = { fg = c.vscDarkBlue, bg = c.vscLightGreen, bold = true },
-  }
-})
-require('vscode').load()
+  },
+}
+require("vscode").load()
