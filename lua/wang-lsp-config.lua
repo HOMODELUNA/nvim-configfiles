@@ -1,5 +1,5 @@
 -- Setup language servers.
-local lsps = {"clangd", "rust_analyzer", "ruby_lsp", "solargraph", "ts_ls", "pylsp", "cmake", "crystalline", "gopls"}
+local lsps = {"clangd", "rust_analyzer", "ruby_lsp", "solargraph", "ts_ls", "pylsp", "cmake", "crystalline", "gopls", "racket_langserver"}
 vim.lsp.enable(lsps)
 local coq = require("coq")
 local util = require("lspconfig.util")
