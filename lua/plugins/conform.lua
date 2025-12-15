@@ -33,6 +33,8 @@ return {
       python = { "isort", "black" },
       ruby = { "rufo" },
       javascript = { "prettierd", "prettier", stop_after_first = true },
+      typescript = { "prettierd", "prettier", stop_after_first = true },
+      typescriptreact = { "prettierd", "prettier", stop_after_first = true },
       tex = { "latexindent" },
       xml = { "xmllint" },
       lua = { "stylua" },
