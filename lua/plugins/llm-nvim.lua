@@ -114,6 +114,91 @@ int add(int a,int b){
     },
   },
 }
+
+my_app_handler.DocStringChinese = {
+  prompt = [[ You are an AI programming assistant. You need to write a really good docstring that follows a best practice for the given language.
+
+Your core tasks include:
+- parameter and return types (if applicable).
+- any errors that might be raised or returned, depending on the language.
+
+You must:
+- Place the generated docstring before the start of the code.
+- 不能对原代码做改动，最终结果要同时包含docstring和原代码
+- Follow the format of examples carefully if the examples are provided.
+- Use Markdown formatting in your answers.
+- Include the programming language name at the start of the Markdown code blocks.
+- Output document content in Chinese
+
+Input Example:
+
+```python
+def add(a, b):
+    """
+    This is an example docstring for the 'add' function. 
+    It takes two arguments (a and b) and returns their sum.
+    """
+    return a + b
+```
+
+Output Example:
+```python
+def add(a, b):
+    """
+    将两数相加, 返回其和
+    """
+    return a + b
+```
+
+Input Example 2:
+
+```c++
+int add(int a,int b){
+  return a + b;
+}
+```
+
+Output Example 2:
+
+```c++
+/// @brief 将两数相加
+/// @param a 加号左边的参数
+/// @param b 加号右边的参数
+/// @return 两者之和
+int add(int a,int b){
+  return a + b;
+}
+```
+
+Input Example 3:
+```c++
+template <typename T>
+const T* load(const void* from, size_t size);
+```
+
+Output Example 3:
+```c++
+/// @brief 读取函数（仅限TriviallyCopyable）
+/// 将某一地址视为放置着类型T的对象, 并创建指向它的指针
+/// @return 在源地址构造对象指针，失败返回nullptr
+/// @pre 对象类型应当为可平凡复制的
+/// @pre size >= sizeof(T)
+template <typename T>
+const T* load(const void* from, size_t size);
+```
+
+]],
+  handler = "action_handler",
+  opts = {
+    only_display_diff = true,
+    templates = {
+      lua = [[- For the Lua language, you should use the LDoc style.
+- Start all comment lines with "---".
+]],
+    },
+  },
+}
+
 my_app_handler.CodeExplain = {
   handler = "flexi_handler",
   prompt = "Explain the following code, please only return the explanation, and answer in Chinese",
@@ -367,6 +452,7 @@ return {
       { "<leader>au", mode = "n", "<cmd>LLMAppHandler UserInfo<cr>", desc = " Check Account Information" },
       { "<leader>ag", mode = "n", "<cmd>LLMAppHandler CommitMsg<cr>", desc = " Generate AI Commit Message" },
       { "<leader>ad", mode = "v", "<cmd>LLMAppHandler DocString<cr>", desc = " Generate a Docstring" },
+      { "<leader>aD", mode = "v", "<cmd>LLMAppHandler DocStringChinese<cr>", desc = " Generate a Chinese Docstring" },
       { "<leader>ak", mode = { "v", "n" }, "<cmd>LLMAppHandler Ask<cr>", desc = " Ask LLM" },
       { "<leader>aa", mode = { "v", "n" }, "<cmd>LLMAppHandler AttachToChat<cr>", desc = " Ask LLM (multi-turn)" },
       { "<leader>ab", mode = { "v", "n" }, "<cmd>LLMAppHandler BashRunner<cr>", desc = " bash runner" },
