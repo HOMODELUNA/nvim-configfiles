@@ -18,7 +18,7 @@ require("wang-lsp-config")
 require("wang-highlight-glog")
 require("wang-keymaps")
 
-require("nvim-treesitter.configs").setup {
+require("nvim-treesitter").setup {
   highlight = {
     enable = true,
     disable = function(lang, bufnr)
@@ -36,17 +36,6 @@ local colorscheme = "pracale"
 vim.opt.rtp:prepend("~/src/pracale.nvim")
 require("pracale")
 vim.cmd("colorscheme " .. colorscheme)
-
--- 为crystal语言增添一种新的parser
-local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-parser_config.crystal = {
-  install_info = {
-    url = "https://github.com/crystal-lang-tools/tree-sitter-crystal",
-    files = { "src/parser.c", "src/scanner.c" },
-    branch = "main",
-  },
-  filetype = "cr",
-}
 
 -- 折叠
 vim.opt.foldmethod = "indent"
