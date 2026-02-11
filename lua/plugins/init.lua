@@ -54,4 +54,8 @@ return {
       }
     end,
   },
+  {
+    "git@github.com:davidmh/mdx.nvim",
+    dependencies = {"git@github.com:nvim-treesitter/nvim-treesitter"}
+  }
 }
