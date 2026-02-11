@@ -11,6 +11,9 @@ vim.api.nvim_create_user_command("Format", function(args)
   require("conform").format { async = true, lsp_format = "fallback", range = range }
 end, { range = true })
 
+
+local by_prettier = { "prettierd", "prettier", stop_after_first = true }
+
 return {
   "git@github.com:stevearc/conform.nvim",
   event = { "BufWritePre" },
@@ -32,9 +35,10 @@ return {
     formatters_by_ft = {
       python = { "isort", "black" },
       ruby = { "rufo" },
-      javascript = { "prettierd", "prettier", stop_after_first = true },
-      typescript = { "prettierd", "prettier", stop_after_first = true },
-      typescriptreact = { "prettierd", "prettier", stop_after_first = true },
+      javascript = by_prettier,
+      typescript = by_prettier,
+      typescriptreact = by_prettier,
+      css = by_prettier,
       tex = { "latexindent" },
       xml = { "xmllint" },
       lua = { "stylua" },
