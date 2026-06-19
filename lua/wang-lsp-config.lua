@@ -24,7 +24,6 @@ local function my_on_attach(client, bufnr)
 end
 
 local wang_configs = {
-  coq.lsp_ensure_capabilities {},
   on_attach = my_on_attach,
 }
 
