@@ -14,6 +14,8 @@ end, { range = true })
 
 local by_prettier = { "prettierd", "prettier", stop_after_first = true }
 
+local by_prettier_and_jq = { "prettierd", "prettier", "jq", stop_after_first = true }
+
 return {
   "git@github.com:stevearc/conform.nvim",
   event = { "BufWritePre" },
@@ -42,10 +44,12 @@ return {
       tex = { "latexindent" },
       xml = { "xmllint" },
       lua = { "stylua" },
+      json = by_prettier_and_jq,
+      jsonc = by_prettier_and_jq,
     },
     -- Set up format-on-save
     format_on_save = function(bufnr)
-      local ignore_filetypes = { "lua", "sql", "crystal" }
+      local ignore_filetypes = { "lua", "sql", "crystal", "json" }
       if vim.tbl_contains(ignore_filetypes, vim.bo[bufnr].filetype) then
         if not (vim.g.enable_autoformat or vim.b[bufnr].enable_autoformat) then
           return
