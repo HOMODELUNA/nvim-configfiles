@@ -56,3 +56,21 @@ vim.opt.foldlevel = 99
 vim.opt.expandtab = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
+
+-- treesitter 如果有支持, 则启用
+vim.api.nvim_create_autocmd('FileType', {
+  callback = function() 
+    local ftype = vim.bo.filetype
+    local tree_sitter = require("nvim-treesitter")
+    local filetypes = tree_sitter.get_installed()
+    if vim.list_contains(filetypes,ftype) then
+      vim.treesitter.start() 
+      vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+      vim.wo[0][0].foldmethod = 'expr'
+    end
+  end,
+})
+
+
+-- KDE 设置剪贴板
+vim.api.nvim_set_option("clipboard", "unnamedplus")
